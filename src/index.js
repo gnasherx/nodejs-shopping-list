@@ -4,13 +4,13 @@ import constants from "./configurations/constants";
 import "./configurations/database";
 import middlewareConfig from "./configurations/middlewares";
 
-import { ListsRoutes } from "./models";
+import { ListsRoutes, ContentsRoutes } from "./models";
 
 const app = express();
 
 middlewareConfig(app);
 
-app.use("/api", [ListsRoutes]);
+app.use("/api", [ListsRoutes, ContentsRoutes]);
 
 app.listen(constants.PORT, function(error) {
   if (error) {
